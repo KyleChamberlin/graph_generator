@@ -35,9 +35,11 @@ def create_graph(origin, node_count, city_list):
     children_count = 1 if node_count <= 1 else randint(1, 10)
 
     for i in range(0, children_count):
-        name = city_list[randint(0, len(city_list))]
+        idx = randint(0, len(city_list))
+        name = city_list[idx]
         city = City(name)
 
+        city_list.remove(name)
         cities.append(city)
         edge_list = edge_list + [Route(origin, city, randint(1,200))]
 
